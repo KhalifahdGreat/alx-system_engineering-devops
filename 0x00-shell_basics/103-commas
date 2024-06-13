@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -a1 | sort -f | awk '{if(NR==1) printf "%s", $1; else printf ", %s", $1} END {print ""}' | sed 's/,$//; s/^, //; s/\(.*\)/.\/, ..\/, \1/'
