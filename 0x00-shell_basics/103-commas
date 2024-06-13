@@ -1,3 +1,2 @@
 #!/bin/bash
-{ ls -d . .. *; ls -d .* | grep -v '^\.$' | grep -v '^\.\.$'; } | sort | awk '{if (NR==1) { printf $0 } else { printf ", " $0 }} END { print "" }' | sed 's/\([^/]\)$/\1\//'
-'
+ls -pamv
