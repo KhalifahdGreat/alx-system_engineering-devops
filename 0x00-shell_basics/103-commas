@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a1 | sort -f | awk '{if(NR==1) printf "%s", $1; else printf ", %s", $1} END {print ""}' | sed 's/,$//; s/^, //; s/\(.*\)/.\/, ..\/, \1/'
+ls -a | awk 'BEGIN {print "./, ../"} {if (NR>2) print $0}' | sort -d | awk '{if (substr($0,length($0),1) == "/") print $0"/"; else print $0}' | paste -sd ", " - | sed 's/, $/\n/''
